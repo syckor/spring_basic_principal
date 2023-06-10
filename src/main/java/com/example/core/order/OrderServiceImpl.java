@@ -9,10 +9,16 @@ import com.example.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); //DIP원칙 위배
-    private  DiscountPolicy discountPolicy = new RateDiscountPolicy(); //OCP원칙 위배
+    //private  DiscountPolicy discountPolicy = new RateDiscountPolicy(); //OCP원칙 위배
 
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
