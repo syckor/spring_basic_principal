@@ -7,6 +7,7 @@ import com.example.core.discount.RateDiscountPolicy;
 import com.example.core.member.Member;
 import com.example.core.member.MemberRepository;
 import com.example.core.member.MemoryMemberRepository;
+<<<<<<< HEAD
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,10 +22,17 @@ public class OrderServiceImpl implements OrderService {
 //    @Autowired private DiscountPolicy discountPolicy;     -> 외부에서 테스트하기 힘듬, 결국 setter를 만들어야함..
 
     private final MemberRepository memberRepository;//final은 값이 항상 있어야 함
+=======
+
+public class OrderServiceImpl implements OrderService {
+
+    private final MemberRepository memberRepository;
+>>>>>>> parent of 34475bc (component와 생성자 주입 방법)
     private final DiscountPolicy discountPolicy;
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); //DIP원칙 위배
     //private  DiscountPolicy discountPolicy = new RateDiscountPolicy(); //OCP원칙 위배
 
+<<<<<<< HEAD
     //수정자 주입
 //    @Autowired
 //    public void setMemberRepository(MemberRepository memberRepository) {
@@ -38,6 +46,10 @@ public class OrderServiceImpl implements OrderService {
     //생성자가 하나 있으면 Autowired를 안붙여도 된다. 그리고 생성자 주입을 쓰자!
     public OrderServiceImpl(MemberRepository memberRepository
             , /*@Qualifier("mainDiscountPolicy")*/ @MainDiscountPolicy DiscountPolicy discountPolicy) {
+=======
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+>>>>>>> parent of 34475bc (component와 생성자 주입 방법)
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
         //같은 구현체가 있을 때는 필드명으로 빈 이름 매칭 가능

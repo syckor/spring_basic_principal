@@ -3,6 +3,7 @@ package com.example.core.discount;
 import com.example.core.annotation.MainDiscountPolicy;
 import com.example.core.member.Grade;
 import com.example.core.member.Member;
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Component;
 /*@Qualifier("mainDiscountPolicy")*/
 //@Primary //같은 구현체가 있을 땐 얘를 선택하게 됨
 @MainDiscountPolicy
+=======
+
+>>>>>>> parent of 34475bc (component와 생성자 주입 방법)
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
